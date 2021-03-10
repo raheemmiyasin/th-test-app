@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./docs/swagger.json')
 const dotenv = require('dotenv').config({
 	path: './.env'
 });
@@ -23,6 +25,7 @@ app.use(express.urlencoded({
 app.get('/', (req, res) => {
     res.send('Hello');
 });
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 const apiRoutes = express.Router();
 app.use('/api', apiRoutes);

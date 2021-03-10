@@ -1,0 +1,187 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API DOC",
+      "contact": {},
+      "version": "1.0"
+    },
+    "servers": [
+      {
+        "url": "http://127.0.0.1:3000",
+        "variables": {}
+      }
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "tags": [
+            "Misc"
+          ],
+          "summary": "Root",
+          "operationId": "Root",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/api/auth/register": {
+        "post": {
+          "tags": [
+            "Misc"
+          ],
+          "summary": "Register",
+          "operationId": "Register",
+          "parameters": [],
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegisterRequest"
+                },
+                "example": {
+                  "name": "raheemmi",
+                  "email": "raheemmiyasin@gmail.com",
+                  "password": "hope1234"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/api/auth/login": {
+        "post": {
+          "tags": [
+            "Misc"
+          ],
+          "summary": "Login",
+          "operationId": "Login",
+          "parameters": [],
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginRequest"
+                },
+                "example": {
+                  "name": "test",
+                  "email": "raheemmiyasin@gmail.com",
+                  "password": "hope1234"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/api/users": {
+        "get": {
+          "tags": [
+            "Misc"
+          ],
+          "summary": "List users",
+          "operationId": "Listusers",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "deprecated": false
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "RegisterRequest": {
+          "title": "RegisterRequest",
+          "required": [
+            "name",
+            "email",
+            "password"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          },
+          "example": {
+            "name": "raheemmi",
+            "email": "raheemmiyasin@gmail.com",
+            "password": "hope1234"
+          }
+        },
+        "LoginRequest": {
+          "title": "LoginRequest",
+          "required": [
+            "name",
+            "email",
+            "password"
+          ],
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          },
+          "example": {
+            "name": "test",
+            "email": "raheemmiyasin@gmail.com",
+            "password": "hope1234"
+          }
+        }
+      },
+      "securitySchemes": {
+        "httpBearer": {
+          "type": "http",
+          "scheme": "bearer"
+        }
+      }
+    },
+    "security": [
+      {
+        "httpBearer": []
+      }
+    ],
+    "tags": [
+      {
+        "name": "Misc",
+        "description": ""
+      }
+    ]
+  }
